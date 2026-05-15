@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00f2ff;
+  --color-secondary: #bc13fe;
+  --color-accent: #ff0066;
+  --color-cyber: #0a0a14;
+  --color-foreground: #f8fafc;
+  --color-background: #0a0a14;
+  --shadow-glow: 0 0 20px rgba(0, 242, 255, 0.4);
+  --shadow-glow-secondary: 0 0 20px rgba(188, 19, 254, 0.4);
+}
+
+:root {
+  --primary: #00f2ff;
+  --secondary: #bc13fe;
+  --accent: #ff0066;
+  --background: #0a0a14;
+  --foreground: #f8fafc;
+}
+
+body {
+  @apply bg-cyber text-foreground overflow-x-hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-glow;
+}
+
+.glow-text {
+  @apply font-black;
+  background: linear-gradient(135deg, #fff, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-cyber {
+  @apply relative overflow-hidden px-6 py-3 rounded-xl font-bold transition-all duration-300 active:scale-95 flex items-center justify-center gap-2;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+}
+
+.btn-cyber:hover {
+  @apply shadow-glow scale-105;
+}
+
+.btn-outline-cyber {
+  @apply border-2 border-primary/50 text-primary px-6 py-3 rounded-xl font-bold hover:bg-primary/10 transition-all duration-300 flex items-center justify-center gap-2;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
